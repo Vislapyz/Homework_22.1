@@ -1,6 +1,8 @@
 import json
 
 from django.core.management import BaseCommand
+from django.db import connection
+
 from catalog.models import Category, Product
 
 
@@ -31,6 +33,9 @@ class Command(BaseCommand):
         return products
 
     def handle(self, *args, **options):
+        with connection.cursor() as cursor:
+            cursor.execute(f"TRUNCATE TABLE catalog_category RESTART IDENTITY CASCADE;")
+            cursor.execute(f"TRUNCATE TABLE catalog_product RESTART IDENTITY CASCADE;")
         # Удалите все продукты
         Product.objects.all().delete()
         # Удалите все категории
