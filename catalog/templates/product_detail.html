@@ -1,0 +1,20 @@
+{% extends 'home.html' %}
+{% load my_tags %}
+{% block content %}
+<div class="row text-center">
+    <div class="col-4">
+        <div class="card mb-4 box-shadow">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">{{ product.name }}</h4>
+                <h4 class="my-0 font-weight-normal">{{ product.category }}</h4>
+                <h4 class="my-0 font-weight-normal">{{ product.description | truncatewords:50}}</h4>
+                <h4 class="my-0 font-weight-normal">{{ cost_product }} р.</h4>
+            </div>
+            <img class="card-img-top" src="{{ product.photo | media_filter }}">
+            <div class="card-body">
+                <button type="button" class="btn btn-lg btn-block btn-outline-primary">Купить</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
