@@ -6,7 +6,7 @@ from catalog.models import Product
 # Create your views here.
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'catalog/home.html')
 
 
 def products_list(request):
