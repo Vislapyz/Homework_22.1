@@ -4,8 +4,9 @@
 <div class="row text-center">
     <div class="col-4">
         <div class="card mb-4 box-shadow">
-            <img src="{{ product.imagery | media_filter }}">
+
             <div class="card-header">
+                <img src="{{ product.imagery | media_filter }}">
                 <h4 class="my-0 font-weight-normal">{{ product.product_name }}</h4>
                 <div class="card-body">
                     <h4 class="my-0 font-weight-normal">{{ product.product_description | truncatewords:100 }}</h4>
@@ -14,7 +15,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="card-body">
                 <button type="button" class="btn btn-lg btn-block btn-outline-primary">Купить</button>
             </div>
