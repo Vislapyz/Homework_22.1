@@ -1,18 +1,29 @@
 from django.shortcuts import render, get_object_or_404
-
+from django.views.generic import ListView, TemplateView
 from catalog.models import Product
 
 
 # Create your views here.
 
-def home(request):
-    return render(request, 'home.html')
+class ProductListView(ListView):
+    model = Product
+    template_name = "product_list.html"
+
+# class HomePageView(TemplateView):
+#     template_name = "base.html"
 
 
-def products_list(request):
-    products = Product.objects.all()
-    context = {"products": products}
-    return render(request, 'products_list.html', context)
+
+# class HomeView(TemplateView):
+#     template_name = 'catalog/base.html'
+# def home(request):
+#     return render(request, 'base.html')
+#
+# #
+# def products_list(request):
+#     products = Product.objects.all()
+#     context = {"products": products}
+#     return render(request, 'product_list.html', context)
 
 
 def product_detail(request, pk):
@@ -29,3 +40,4 @@ def contacts(request):
         message = request.POST.get('message')
         print(f'{name} ({phone}) написал: {message}')
     return render(request, "contacts.html")
+
