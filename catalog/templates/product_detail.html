@@ -6,14 +6,14 @@
         <div class="card mb-4 box-shadow">
 
             <div class="card-header">
-                {% if product.imagery %}
+                {% if object.imagery %}
                 <img src="{{ product.imagery | media_filter }}">
                 {% endif %}
-                <h4 class="my-0 font-weight-normal">{{ product.product_name }}</h4>
+                <h4 class="my-0 font-weight-normal">{{ object.product_name }}</h4>
                 <div class="card-body">
-                    <h4 class="my-0 font-weight-normal">{{ product.product_description | truncatewords:100 }}</h4>
+                    <h4 class="my-0 font-weight-normal">{{ object.product_description | truncatewords:100 }}</h4>
                     <div class="card-body">
-                        <h4 class="my-0 font-weight-normal">Цена {{ product.cost_product }}</h4>
+                        <h4 class="my-0 font-weight-normal">Цена {{ object.cost_product }}</h4>
                     </div>
                 </div>
             </div>
